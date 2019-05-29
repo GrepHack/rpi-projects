@@ -7,11 +7,15 @@ sudo pip install setuptools
 sudo pip install virtualenv virtualenvwrapper
 mkvirtualenv -p /usr/bin/python3 mitmproxy
 mkdir virtualenv
+## add them to .bashrc
+## deactivate to gtfo
 export PROJECT_HOME=~/virtualenv/
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-mkproject -p /usr/bin/python3 mitmproxy
+mkproject --python=python3.6  mitmproxy
 # sudo apt-get install build-essential libssl-dev libffi-dev python3-dev python-dev
 # sudo apt-get install libffi-dev libjpeg-dev
+https://gist.github.com/dschep/24aa61672a2092246eaca2824400d37f
+script or something 
 apt-get install libssl-dev
 sudo apt-get install build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev
 
@@ -35,7 +39,7 @@ sudo iptables -A FORWARD -i wlan0 -o wlan1 -m state --state RELATED,ESTABLISHED 
 sudo iptables -t nat -A PREROUTING -i wlan1 -p tcp --dport 80 -j REDIRECT --to-port 8080
 sudo iptables -t nat -A PREROUTING -i wlan1 -p tcp --dport 433 -j REDIRECT --to-port 8080
 
-# mitmproxy -T --host
+mitmproxy -T --host
 
 # sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE  
 # sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT  
